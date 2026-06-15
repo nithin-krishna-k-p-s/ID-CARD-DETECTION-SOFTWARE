@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ID Card Detection System</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+<body>
+<header>
+  <h1>🛡️ ID Card Compliance Detection System</h1>
+  <p>AI-powered ID card and lanyard verification</p>
+</header>
+
+<main>
+  <section class="controls">
+    <div class="control-card">
+      <h3>📷 Webcam</h3>
+      <button id="startWebcam">Start Webcam</button>
+      <button id="stopWebcam">Stop</button>
+    </div>
+    <div class="control-card">
+      <h3>🖼️ Image</h3>
+      <input type="file" id="imageInput" accept="image/*">
+    </div>
+    <div class="control-card">
+      <h3>🎥 Video</h3>
+      <input type="file" id="videoInput" accept="video/*">
+    </div>
+  </section>
+
+  <section class="display">
+    <div class="video-container">
+      <video id="video" autoplay muted playsinline></video>
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="status-panel">
+      <div id="status" class="status-ok">System Ready</div>
+      <div class="stats">
+        <p>ID Cards Detected: <span id="idCount">0</span></p>
+        <p>Lanyards Detected: <span id="lanyardCount">0</span></p>
+        <p>FPS: <span id="fps">0</span></p>
+      </div>
+      <div class="alert" id="alert" style="display:none;">
+        ⚠️ NO ID CARD DETECTED!
+      </div>
+    </div>
+  </section>
+</main>
+
+<audio id="alarm" src="alarm.mp3" loop></audio>
+<footer>© 2025 ID Detection System</footer>
+<script src="script.js"></script>
+</body>
+</html>
